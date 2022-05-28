@@ -10,7 +10,7 @@ import HomeScreenButton from '../components/HomeScreenButton';
  */
 export default function HomeScreen(props: any) {
     return(
-        <View style={styles.container}>
+        <View>
             <Text style={styles.title}>CityPop</Text> 
             <HomeScreenButton 
                 text="SEARCH BY CITY"  
@@ -26,13 +26,10 @@ export default function HomeScreen(props: any) {
 
 // TODO: Extract into a single component to reuse this on all screens?
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     title: {
         fontSize: 30,
         fontWeight: 'bold',
         marginVertical: 100,
+        textAlign: "center",
     },
 });

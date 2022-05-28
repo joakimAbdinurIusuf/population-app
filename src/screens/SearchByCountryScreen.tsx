@@ -15,13 +15,10 @@ export default function SearchByCountryScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     title: {
       fontSize: 30,
       fontWeight: 'bold',
       marginVertical: 100,
+      textAlign: "center",
     }
 });
