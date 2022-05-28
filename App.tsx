@@ -4,6 +4,10 @@ import HomeScreen from './src/screens/HomeScreen';
 import SearchByCityScreen from './src/screens/SearchByCityScreen';
 import SearchByCountryScreen from './src/screens/SearchByCountryScreen';
 
+/*
+Using a stack navigator as opposed to a botton tab or drawer navigator
+as it fits best with the requirements. 
+*/
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
@@ -13,7 +17,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'App',
+      title: 'CityPop',
     },
   }
 );
