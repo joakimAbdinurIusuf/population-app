@@ -14,7 +14,7 @@ const navigator = createStackNavigator(
     Home: HomeScreen,
     SearchByCity: SearchByCityScreen,
     SearchByCountry: SearchByCountryScreen,
-    Results: ResultsScreen
+    Results: ResultsScreen,
   },
   {
     initialRouteName: 'Home',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBarAndButton';
 import useCity from '../hooks/useCity';
 
 /**
@@ -24,7 +24,7 @@ export default function SearchByCityScreen() {
             />
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
             <Text>Name of city: {result.name}</Text>
-            <Text>Name of city: {result.population}</Text>
+            <Text>Population: {result.population}</Text>
         </View>
     )
 }

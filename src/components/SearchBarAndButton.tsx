@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import SearchButton from './SearchButton';
+import { Ionicons } from '@expo/vector-icons';
 
 /**
  * 
@@ -14,9 +14,12 @@ import SearchButton from './SearchButton';
                 placeholder="Enter a city" 
                 value={searchTerm}
                 onChangeText={onTermChange}
-                onEndEditing={onCitySubmit}
             />
-            <SearchButton /> 
+            <TouchableOpacity onPress={onCitySubmit}>
+                <View style={styles.button}>
+                    <Ionicons name="search-circle-outline" size={70}/>
+                </View>
+            </TouchableOpacity>
         </View>
     ); // TODO: onEndEditing functionality should happen when pressing the search button.
   }
@@ -33,5 +36,9 @@ import SearchButton from './SearchButton';
           textAlign: 'center',
           borderColor: "black",
           borderWidth: 1
-      }
+      },
+      button: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
   });
