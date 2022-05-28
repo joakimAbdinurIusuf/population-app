@@ -1,13 +1,16 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import SearchButton from './SearchButton';
 
 /**
  * 
  */
  export default function SearchBar() {
     return (
-        <View style={styles.background}>
-            <Text>Enter a city</Text>
+        <View>
+            <TextInput style={styles.background} placeholder="Enter a city" />
+            <SearchButton />
         </View>
     );
   }
@@ -15,8 +18,14 @@ import { Button, StyleSheet, Text, View } from 'react-native';
   const styles = StyleSheet.create({
       background: {
           backgroundColor: "#F0EEEE",
+          fontSize: 20,
           height: 50,
           borderRadius: 5,
-          margin: 15
+          marginBottom: 10,
+          marginLeft: 30,
+          marginRight: 30,
+          textAlign: 'center',
+          borderColor: "black",
+          borderWidth: 1
       }
   });
