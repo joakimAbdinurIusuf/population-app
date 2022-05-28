@@ -12,18 +12,6 @@ export default function SearchButton() {
   );
 }
 
-/*
-export default function SearchButton(onPress: any) {
-  return (
-    <TouchableOpacity onPress={onPress}>
-        <View style={styles.button}>
-            <Ionicons name="search-circle-outline" />
-        </View>
-    </TouchableOpacity>
-  );
-}
-*/
-
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',

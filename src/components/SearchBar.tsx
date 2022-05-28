@@ -6,10 +6,16 @@ import SearchButton from './SearchButton';
 /**
  * 
  */
- export default function SearchBar() {
+ export default function SearchBar({ searchTerm, onTermChange }: any) {
     return (
         <View>
-            <TextInput style={styles.background} placeholder="Enter a city" />
+            <TextInput 
+                autoCapitalize="none"
+                style={styles.background} 
+                placeholder="Enter a city" 
+                value={searchTerm}
+                onChangeText={onTermChange}
+            />
             <SearchButton />
         </View>
     );

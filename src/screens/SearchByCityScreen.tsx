@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import SearchBar from '../components/SearchBar';
 
 /**
@@ -8,10 +8,16 @@ import SearchBar from '../components/SearchBar';
  * @returns A search by city screen.
  */
 export default function SearchByCityScreen() {
+    const [searchTerm, setSearchTerm] = useState("");
+
     return(
         <View>
             <Text style={styles.title}>SEARCH BY CITY</Text>
-            <SearchBar />
+            <SearchBar 
+                searchTerm={searchTerm} 
+                onTermChange={setSearchTerm} 
+                
+            />
         </View>
     )
 }
