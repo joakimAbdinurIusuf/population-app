@@ -15,7 +15,7 @@ const navigator = createStackNavigator(
     SearchByCountry: SearchByCountryScreen,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'SearchByCity',
     defaultNavigationOptions: {
       title: 'CityPop',
     },

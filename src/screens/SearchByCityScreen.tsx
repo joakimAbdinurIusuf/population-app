@@ -3,8 +3,20 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function SearchByCityScreen() {
     return(
-        <View>
-            <Text>SEARCH BY CITY</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>SEARCH BY CITY</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 100,
+    },
+    title: {
+      fontSize: 30,
+      fontWeight: 'bold',
+    }
+});
