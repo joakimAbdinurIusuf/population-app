@@ -2,14 +2,14 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 /**
- * The search by country screen that is navigated to from the home screen.
+ * The results screen, which shows the name of a city and its' population.
  * 
- * @returns A search by country screen.
+ * @returns A results screen.
  */
-export default function SearchByCountryScreen() {
+export default function ResultsScreen() {
     return(
         <View>
-            <Text style={styles.title}>SEARCH BY COUNTRY</Text>
+            <Text style={styles.title}>NAME OF CITY</Text>
         </View>
     )
 }

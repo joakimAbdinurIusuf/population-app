@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import SearchByCityScreen from './src/screens/SearchByCityScreen';
 import SearchByCountryScreen from './src/screens/SearchByCountryScreen';
+import ResultsScreen from './src/screens/ResultsScreen';
 
 /*
 Using a stack navigator as opposed to a botton tab or drawer navigator
@@ -13,6 +14,7 @@ const navigator = createStackNavigator(
     Home: HomeScreen,
     SearchByCity: SearchByCityScreen,
     SearchByCountry: SearchByCountryScreen,
+    Results: ResultsScreen
   },
   {
     initialRouteName: 'Home',
