@@ -6,19 +6,19 @@ import SearchButton from './SearchButton';
 /**
  * 
  */
- export default function SearchBar({ searchTerm, onTermChange }: any) {
+ export default function SearchBar({ searchTerm, onTermChange, onCitySubmit }: any) {
     return (
         <View>
             <TextInput 
-                autoCapitalize="none"
                 style={styles.background} 
                 placeholder="Enter a city" 
                 value={searchTerm}
                 onChangeText={onTermChange}
+                onEndEditing={onCitySubmit}
             />
-            <SearchButton />
+            <SearchButton /> 
         </View>
-    );
+    ); // TODO: onEndEditing functionality should happen when pressing the search button.
   }
   
   const styles = StyleSheet.create({

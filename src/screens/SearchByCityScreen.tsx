@@ -16,7 +16,7 @@ export default function SearchByCityScreen() {
             <SearchBar 
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
-                
+                onCitySubmit={() => console.log("city was submitted")}
             />
         </View>
     )
