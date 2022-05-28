@@ -4,7 +4,14 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 export default function HomeScreen() {
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>CityPop</Text>
+            <Text style={styles.title}>CityPop</Text> 
+            <Button 
+                title="SEARCH BY CITY" 
+                onPress={() => console.log("pressed")}
+            />
+            <Button 
+                title="SEARCH BY COUNTRY" 
+            />
         </View>
     )
 }
