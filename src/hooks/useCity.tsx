@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import GeoNames from '../api/GeoNames';
 
 export default function useCity() {
@@ -16,14 +16,14 @@ export default function useCity() {
     
             /*
             When we enter the name of a city, e.g. Stockholm, it appears as the first 
-            element of the geonames array. Therefore, we check what information is present at
-            geonames[0].
+            element of the geonames array. Therefore, we set results to only include
+            that object. 
     
             We also have to check that the fclName attribute contains the substring "city", as
             we are only interested in citites, not mountains for instance.
             */
             if (response.data.geonames[0].fclName.includes("city")) {
-                setResult(response.data.geonames);
+                setResult(response.data.geonames[0]);
             } 
         } catch (err) {
             setErrorMessage("Oops! Looks like that city doesn't exist :(")

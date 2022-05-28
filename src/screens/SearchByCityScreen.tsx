@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useCity from '../hooks/useCity';
@@ -11,6 +11,8 @@ import useCity from '../hooks/useCity';
 export default function SearchByCityScreen() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchApi, result, errorMessage] = useCity();
+    
+    console.log(result);
 
     return(
         <View>
@@ -21,7 +23,8 @@ export default function SearchByCityScreen() {
                 onCitySubmit={() => searchApi(searchTerm)}
             />
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
-            <Text>We have found {result.length} results</Text>
+            <Text>Name of city: {result.name}</Text>
+            <Text>Name of city: {result.population}</Text>
         </View>
     )
 }
