@@ -1,6 +1,11 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
+/**
+ * The search by country screen that is navigated to from the home screen.
+ * 
+ * @returns A search by country screen.
+ */
 export default function SearchByCountryScreen() {
     return(
         <View style={styles.container}>
@@ -13,10 +18,10 @@ const styles = StyleSheet.create({
     container: {
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 100,
     },
     title: {
       fontSize: 30,
       fontWeight: 'bold',
+      marginVertical: 100,
     }
 });
