@@ -6,10 +6,17 @@ import { Button, StyleSheet, Text, View } from 'react-native';
  */
  export default function SearchBar() {
     return (
-        <View>
+        <View style={styles.background}>
             <Text>Enter a city</Text>
         </View>
     );
   }
   
-  const styles = StyleSheet.create({});
+  const styles = StyleSheet.create({
+      background: {
+          backgroundColor: "#F0EEEE",
+          height: 50,
+          borderRadius: 5,
+          margin: 15
+      }
+  });

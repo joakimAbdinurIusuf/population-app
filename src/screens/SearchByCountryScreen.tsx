@@ -8,7 +8,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
  */
 export default function SearchByCountryScreen() {
     return(
-        <View style={styles.container}>
+        <View>
             <Text style={styles.title}>SEARCH BY COUNTRY</Text>
         </View>
     )
