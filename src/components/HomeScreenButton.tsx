@@ -25,7 +25,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#3b82f6",
     marginTop: 10,
-    flexHorizontal: 10
+    marginLeft: 30,
+    marginRight: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     fontSize: 16,
