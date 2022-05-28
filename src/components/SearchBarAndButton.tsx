@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation';
 
 /**
  * 
  */
- export default function SearchBar({ searchTerm, onTermChange, onCitySubmit }: any) {
+function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation }: any) {
     return (
         <View>
             <TextInput 
@@ -15,13 +16,13 @@ import { Ionicons } from '@expo/vector-icons';
                 value={searchTerm}
                 onChangeText={onTermChange}
             />
-            <TouchableOpacity onPress={onCitySubmit}>
+            <TouchableOpacity onPress={() => { onCitySubmit; navigation.navigate("Results") }}>
                 <View style={styles.button}>
                     <Ionicons name="search-circle-outline" size={70}/>
                 </View>
             </TouchableOpacity>
         </View>
-    ); // TODO: onEndEditing functionality should happen when pressing the search button.
+    ); 
   }
   
   const styles = StyleSheet.create({
@@ -42,3 +43,5 @@ import { Ionicons } from '@expo/vector-icons';
         justifyContent: 'center',
       },
   });
+
+  export default withNavigation(SearchBar);
