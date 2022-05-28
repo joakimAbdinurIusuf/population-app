@@ -21,6 +21,8 @@ export default function SearchByCityScreen() {
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
                 onCitySubmit={() => searchApi(searchTerm)}
+                cityName={result.name}
+                cityPopulation={result.population}
             />
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
             <Text>Name of city: {result.name}</Text>

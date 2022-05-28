@@ -7,16 +7,18 @@ import { withNavigation } from 'react-navigation';
 /**
  * 
  */
-function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation }: any) {
-    return (
+function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityName, cityPopulation }: any) {
+
+    return ( // navigation.navigate("Results", {name: cityName, population: cityPopulation})
         <View>
             <TextInput 
                 style={styles.background} 
                 placeholder="Enter a city" 
                 value={searchTerm}
                 onChangeText={onTermChange}
+                onEndEditing={onCitySubmit}
             />
-            <TouchableOpacity onPress={() => { onCitySubmit; navigation.navigate("Results") }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Results", {name: cityName, population: cityPopulation})}>
                 <View style={styles.button}>
                     <Ionicons name="search-circle-outline" size={70}/>
                 </View>
