@@ -30,7 +30,7 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
                 onChangeText={onTermChange}
                 // onEndEditing={onCitySubmit}
             />
-            <TouchableOpacity style={styles.touchableDimensions} onPress={() => {{onCitySubmit}; navigateToResultsScreen();}}>
+            <TouchableOpacity style={styles.touchableOpacityDimensions} onPress={() => {onCitySubmit; navigateToResultsScreen();}}>
                 <View style={styles.button}>
                     <Ionicons name="search-circle-outline" size={70}/>
                 </View>
@@ -52,7 +52,10 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
           borderColor: "black",
           borderWidth: 1
       },
-      touchableDimensions: {
+      // Touchableopacity takes up the whole screen horizontally, so cutting of size from
+      // its' left and right means the user has to press directly on the search button for it 
+      // to do anything (previously, they could press the white space around it).
+      touchableOpacityDimensions: {  
           marginLeft: 150,
           marginRight: 150,
     },
