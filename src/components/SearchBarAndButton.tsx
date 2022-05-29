@@ -8,6 +8,18 @@ import { withNavigation } from 'react-navigation';
  * 
  */
 function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityName, cityPopulation }: any) {
+    const onCitySubmitted = () => {
+        return onCitySubmit;
+    }
+
+    const navigateToResultsScreen = () => {
+        return navigation.navigate("Results", {name: cityName, population: cityPopulation});
+    }
+
+    const getPopulationNameAndSizeAndNavigateToResultsScreen = () => {
+        onCitySubmit;
+        navigateToResultsScreen();
+    }
 
     return ( // navigation.navigate("Results", {name: cityName, population: cityPopulation})
         <View>
@@ -16,9 +28,9 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
                 placeholder="Enter a city" 
                 value={searchTerm}
                 onChangeText={onTermChange}
-                onEndEditing={onCitySubmit}
+                // onEndEditing={onCitySubmit}
             />
-            <TouchableOpacity onPress={() => navigation.navigate("Results", {name: cityName, population: cityPopulation})}>
+            <TouchableOpacity style={styles.touchableDimensions} onPress={() => {{onCitySubmit}; navigateToResultsScreen();}}>
                 <View style={styles.button}>
                     <Ionicons name="search-circle-outline" size={70}/>
                 </View>
@@ -40,6 +52,10 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
           borderColor: "black",
           borderWidth: 1
       },
+      touchableDimensions: {
+          marginLeft: 150,
+          marginRight: 150,
+    },
       button: {
         alignItems: 'center',
         justifyContent: 'center',
