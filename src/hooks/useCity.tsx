@@ -10,7 +10,8 @@ export default function useCity() {
             const response = await GeoNames.get("/searchJSON", {
                 params: {
                     username: "weknowit",
-                    name_equals: enteredCity // searchTerm,
+                    name_equals: enteredCity, // searchTerm,
+                    cities: "cities1000"
                 }
             });
     
