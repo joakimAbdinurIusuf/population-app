@@ -12,7 +12,7 @@ export default function SearchByCityScreen() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchApi, result, errorMessage] = useCity();
     
-    console.log(result);
+    console.log(result); // TODO: remove
 
     return(
         <View>
