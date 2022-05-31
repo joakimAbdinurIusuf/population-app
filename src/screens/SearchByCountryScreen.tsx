@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 /**
  * The search by country screen that is navigated to from the home screen.
