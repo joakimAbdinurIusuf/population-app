@@ -24,7 +24,6 @@ export default function HomeScreen(props: any) {
     )
 }
 
-// TODO: Extract into a single component to reuse this on all screens?
 const styles = StyleSheet.create({
     title: {
         fontSize: 30,

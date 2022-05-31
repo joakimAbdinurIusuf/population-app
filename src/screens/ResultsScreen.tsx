@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import GeoNames from '../api/GeoNames';
 
 /**
  * The results screen, which shows the name of a city and its' population.

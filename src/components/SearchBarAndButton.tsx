@@ -1,14 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
-import { withNavigation } from 'react-navigation';
 
 /**
  * 
  */
 export default function SearchBar({ searchTerm, onTermChange, onCitySubmit }: any) {
-    return ( // navigation.navigate("Results", {name: cityName, population: cityPopulation})
+    return ( 
         <View>
             <TextInput 
                 style={styles.background} 
@@ -53,5 +52,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     },
 });
-
-  // export default withNavigation(SearchBar);
