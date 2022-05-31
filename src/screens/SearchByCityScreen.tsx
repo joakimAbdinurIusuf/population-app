@@ -8,25 +8,20 @@ import useCity from '../hooks/useCity';
  * 
  * @returns A search by city screen.
  */
-export default function SearchByCityScreen() {
+export default function SearchByCityScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchApi, result, errorMessage] = useCity();
+    const [searchApi, result, errorMessage, dataIsFetched] = useCity();
     
-    console.log(result); // TODO: remove
-
     return(
         <View>
             <Text style={styles.title}>SEARCH BY CITY</Text>
             <SearchBar 
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
-                onCitySubmit={() => searchApi(searchTerm)}
-                cityName={result.name}
-                cityPopulation={result.population}
+                onCitySubmit={() => (searchApi(searchTerm))}
             />
+            {dataIsFetched ? navigation.navigate("Results", {name: result.name, population: result.population}) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
-            <Text>Name of city: {result.name}</Text>
-            <Text>Population: {result.population}</Text>
         </View>
     )
 }

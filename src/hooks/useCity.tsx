@@ -11,6 +11,7 @@ import GeoNames from '../api/GeoNames';
 export default function useCity() {
     const [result, setResult] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
+    const [dataIsFetched, setDataIsFetched] = useState(false);
 
     const searchApi: any = async (enteredTerm: any) => {
         try {
@@ -37,8 +38,11 @@ export default function useCity() {
             if (response.data.geonames.length >= 1 && response.data.geonames[0].name === enteredTerm) {
                 let cityTheUserSearchedFor = response.data.geonames[0];
                 setResult(cityTheUserSearchedFor);
+                setErrorMessage(""); // TODO: Remove, redudant once ResultsScreen takes user back to home screen but looks nicer now.
+                setDataIsFetched(true);
             } else {
-                setErrorMessage("City doesn't exist, please try again")
+                setErrorMessage("City doesn't exist, please try again");
+                setDataIsFetched(false);
             }
              
         } catch (err) {
@@ -48,5 +52,5 @@ export default function useCity() {
 
     /* SearchByCityScreen uses this function, the result from calling the function and the error message.
     As such all three constant need to be returned to it. */
-    return [searchApi, result, errorMessage]; 
+    return [searchApi, result, errorMessage, dataIsFetched]; 
 }
