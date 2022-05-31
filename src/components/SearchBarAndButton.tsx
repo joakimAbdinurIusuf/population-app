@@ -7,7 +7,7 @@ import { withNavigation } from 'react-navigation';
 /**
  * 
  */
-function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityName, cityPopulation }: any) {
+export default function SearchBar({ searchTerm, onTermChange, onCitySubmit }: any) {
     return ( // navigation.navigate("Results", {name: cityName, population: cityPopulation})
         <View>
             <TextInput 
@@ -15,11 +15,9 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
                 placeholder="Enter a city" 
                 value={searchTerm}
                 onChangeText={onTermChange}
-                //onEndEditing={onCitySubmit}
             />
             <TouchableOpacity
-                onPress={onCitySubmit} 
-                onPressIn={() => navigation.navigate("Results", {name: cityName, population: cityPopulation})}
+                onPress={onCitySubmit}
                 style={styles.touchableOpacityDimensions}
             >
                 <View style={styles.button}>
@@ -28,32 +26,32 @@ function SearchBar({ searchTerm, onTermChange, onCitySubmit, navigation, cityNam
             </TouchableOpacity>
         </View>
     ); 
-  }
+}
   
-  const styles = StyleSheet.create({
-      background: {
-          backgroundColor: "#F0EEEE",
-          fontSize: 20,
-          height: 50,
-          borderRadius: 5,
-          marginBottom: 10,
-          marginLeft: 30,
-          marginRight: 30,
-          textAlign: 'center',
-          borderColor: "black",
-          borderWidth: 1
-      },
-      // Touchableopacity takes up the whole screen horizontally, so cutting of size from
-      // its' left and right means the user has to press directly on the search button for it 
-      // to do anything (previously, they could press the white space around it).
-      touchableOpacityDimensions: {  
-          marginLeft: 150,
-          marginRight: 150,
+const styles = StyleSheet.create({
+    background: {
+        backgroundColor: "#F0EEEE",
+        fontSize: 20,
+        height: 50,
+        borderRadius: 5,
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        textAlign: 'center',
+        borderColor: "black",
+        borderWidth: 1
     },
-      button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-  });
+    /* Touchableopacity takes up the whole screen horizontally, so cutting of size from
+    its' left and right means the user has to press directly on the search button for it 
+    to do anything (previously, they could press the white space around it). */
+    touchableOpacityDimensions: {  
+        marginLeft: 150,
+        marginRight: 150,
+    },
+    button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    },
+});
 
-  export default withNavigation(SearchBar);
+  // export default withNavigation(SearchBar);

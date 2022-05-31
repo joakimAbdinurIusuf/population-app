@@ -7,7 +7,7 @@ import GeoNames from '../api/GeoNames';
  * 
  * @returns A results screen.
  */
-export default function ResultsScreen( {navigation}: any) {
+export default function ResultsScreen({navigation}: any) {
     const nameOfCity = navigation.getParam("name");
     const poplationSize = navigation.getParam("population");
 
