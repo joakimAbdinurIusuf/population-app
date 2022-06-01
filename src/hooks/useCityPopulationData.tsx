@@ -8,7 +8,7 @@ import GeoNames from '../api/GeoNames';
  * city that the user searched for and its' population size, and an error message that is either
  * null or a string if the get request returned an empty geonames array (i.e. the city doesn't exist).
  */
-export default function useCity() {
+export default function useCityPopulationData() {
     const [result, setResult] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [dataIsFetched, setDataIsFetched] = useState(false);
