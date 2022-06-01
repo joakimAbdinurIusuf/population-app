@@ -14,7 +14,7 @@ export default function SearchByCityScreen({navigation}: any) {
     
     return(
         <View>
-            <Text style={styles.title}>SEARCH BY CITY</Text>
+            <Text style={styles.title}>SEARCH BY COUNTRY</Text>
             <SearchBar 
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
