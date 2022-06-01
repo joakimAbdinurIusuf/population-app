@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import SearchBar from '../components/SearchBarAndButton';
-import useCity from '../hooks/useCity';
+import useCityPopulationData from '../hooks/useCityPopulationData';
 
 /**
  * The search by city screen that is navigated to from the home screen.
@@ -10,7 +10,7 @@ import useCity from '../hooks/useCity';
  */
 export default function SearchByCityScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchApi, result, errorMessage, dataIsFetched, fetchingData] = useCity();
+    const [searchCityApi, result, errorMessage, dataIsFetched, fetchingData] = useCityPopulationData();
     
     return(
         <View>
@@ -18,7 +18,7 @@ export default function SearchByCityScreen({navigation}: any) {
             <SearchBar 
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
-                onCitySubmit={() => (searchApi(searchTerm))}
+                onCitySubmit={() => (searchCityApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
             {dataIsFetched ? navigation.navigate("Results", {name: result.name, population: result.population}) : null}
