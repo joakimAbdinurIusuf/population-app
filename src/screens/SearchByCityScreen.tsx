@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import SearchBar from '../components/SearchBarAndButton';
 import useCity from '../hooks/useCity';
 
@@ -10,7 +10,7 @@ import useCity from '../hooks/useCity';
  */
 export default function SearchByCityScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchApi, result, errorMessage, dataIsFetched] = useCity();
+    const [searchApi, result, errorMessage, dataIsFetched, fetchingData] = useCity();
     
     return(
         <View>
@@ -20,6 +20,7 @@ export default function SearchByCityScreen({navigation}: any) {
                 onTermChange={setSearchTerm} 
                 onCitySubmit={() => (searchApi(searchTerm))}
             />
+            {fetchingData ? <ActivityIndicator /> : null}
             {dataIsFetched ? navigation.navigate("Results", {name: result.name, population: result.population}) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>

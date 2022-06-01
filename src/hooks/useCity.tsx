@@ -12,9 +12,11 @@ export default function useCity() {
     const [result, setResult] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [dataIsFetched, setDataIsFetched] = useState(false);
+    const [fetchingData, setfetchingData] = useState(false);
 
     const searchApi: any = async (enteredTerm: any) => {
         try {
+            setfetchingData(true);
             const response = await GeoNames.get("/searchJSON", {
                 params: {
                     username: "weknowit",
@@ -40,9 +42,11 @@ export default function useCity() {
                 setResult(cityTheUserSearchedFor);
                 setErrorMessage(""); // TODO: Remove, redudant once ResultsScreen takes user back to home screen but looks nicer now.
                 setDataIsFetched(true);
+                setfetchingData(false);
             } else {
                 setErrorMessage("City doesn't exist, please try again");
                 setDataIsFetched(false);
+                setfetchingData(false);
             }
              
         } catch (err) {
@@ -52,5 +56,5 @@ export default function useCity() {
 
     /* SearchByCityScreen uses this function, the result from calling the function and the error message.
     As such all three constant need to be returned to it. */
-    return [searchApi, result, errorMessage, dataIsFetched]; 
+    return [searchApi, result, errorMessage, dataIsFetched, fetchingData]; 
 }
