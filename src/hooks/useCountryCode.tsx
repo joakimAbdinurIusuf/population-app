@@ -15,7 +15,7 @@ export default function useCountryCode() {
         try {
             setfetchingData(true);
 
-            const url: string = "/searchJSON?'orderby='population'&username=weknowit&country=" + enteredCountryCode;
+            const url: string = "/searchJSON?orderby='population'&username=weknowit&country=" + enteredCountryCode;
             const response = await GeoNames.get(url);
             
             /* 
@@ -25,7 +25,7 @@ export default function useCountryCode() {
                 params: {
                     username: "weknowit",
                     name_equals: enteredCountryCode,
-                    orderby: 'population',
+                    orderby: "population",
                 }
             }); 
             
