@@ -7,17 +7,11 @@ import { StyleSheet, Text, View } from 'react-native';
  * @returns 
  */
 export default function ThreeBiggestCitiesScreen({navigation}: any) {
-    const cities = navigation.getParam("all");
+    const cities = navigation.getParam("countryCode");
     console.log(cities);
     return(
         <View>
-            <Text style={styles.title}>{cities[0].countryName}</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
-            <Text style={styles.title}>Three biggest cities</Text> 
+            <Text style={styles.title}>{cities}</Text> 
         </View>
     )
 }

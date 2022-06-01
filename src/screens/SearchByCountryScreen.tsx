@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import SearchBar from '../components/SearchBarAndButton';
-import useOrderByPopulation from '../hooks/useOrderByPopulation';
+import useCountryCode from '../hooks/useCountryCode';
 
 /**
  * The search by city screen that is navigated to from the home screen.
@@ -10,9 +10,7 @@ import useOrderByPopulation from '../hooks/useOrderByPopulation';
  */
 export default function SearchByCountryScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchCountryCodeApi, threeBiggestCities, errorMessage, dataIsFetched, fetchingData] = useOrderByPopulation();
-
-    console.log(threeBiggestCities);
+    const [searchCountryCodeApi, countryCode, errorMessage, dataIsFetched, fetchingData] = useCountryCode();
     
     return(
         <View>
@@ -23,7 +21,7 @@ export default function SearchByCountryScreen({navigation}: any) {
                 onCitySubmit={() => (searchCountryCodeApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
-            {dataIsFetched ? navigation.navigate("BiggestCities", {all: threeBiggestCities}) : null}
+            {dataIsFetched ? navigation.navigate("BiggestCities", {countryCode: countryCode}) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>
     )
