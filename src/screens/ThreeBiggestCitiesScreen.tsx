@@ -8,6 +8,7 @@ import ThreeBiggestCitiesButton from '../components/ThreeBiggestCitiesButton';
  * @returns 
  */
 export default function ThreeBiggestCitiesScreen({navigation}: any) {
+    const countryName = navigation.getParam("countryName");
     const name1 = navigation.getParam("name1");
     const population1 = navigation.getParam("population1");
     const name2 = navigation.getParam("name2");
@@ -16,7 +17,7 @@ export default function ThreeBiggestCitiesScreen({navigation}: any) {
     const population3 = navigation.getParam("population3");
     return(
         <View>
-            <Text style={styles.title}>CityPop</Text> 
+            <Text style={styles.title}>{countryName}</Text> 
             <ThreeBiggestCitiesButton 
                 text={name1} 
                 onPress={() => navigation.navigate("Results", {name: name1, population: population1})}

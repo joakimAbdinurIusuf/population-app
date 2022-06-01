@@ -53,9 +53,10 @@ export default function useCountryCode() {
                 let sizeOfSecondBiggestCity = response.data.geonames[1].population;
                 let nameOfThirdBiggestCity = response.data.geonames[2].name;
                 let sizeOfThirdBiggestCity = response.data.geonames[2].population;
+                let countryName = response.data.geonames[0].countryName;
                 let arr: any = [nameOfBiggestCity, sizeOfBiggestCity,
                         nameOfSecondBiggestCity, sizeOfSecondBiggestCity,
-                        nameOfThirdBiggestCity, sizeOfThirdBiggestCity];
+                        nameOfThirdBiggestCity, sizeOfThirdBiggestCity, countryName];
 
                 console.log(arr);
 
