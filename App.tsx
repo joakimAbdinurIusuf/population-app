@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import SearchByCityScreen from './src/screens/SearchByCityScreen';
 import SearchByCountryScreen from './src/screens/SearchByCountryScreen';
+import ThreeBiggestCitiesScreen from './src/screens/ThreeBiggestCitiesScreen';
 import ResultsScreen from './src/screens/ResultsScreen';
 
 /*
@@ -14,6 +15,7 @@ const navigator = createStackNavigator(
     Home: HomeScreen,
     SearchByCity: SearchByCityScreen,
     SearchByCountry: SearchByCountryScreen,
+    BiggestCities: ThreeBiggestCitiesScreen,
     Results: ResultsScreen,
   },
   {
