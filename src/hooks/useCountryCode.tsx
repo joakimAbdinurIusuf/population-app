@@ -6,32 +6,45 @@ import GeoNames from '../api/GeoNames';
  * @returns 
  */
 export default function useCountryCode() {
-    const [countryCode, setCountryCode] = useState([]);
+    const [threeBiggestCities, setThreeBiggestCities] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [dataIsFetched, setDataIsFetched] = useState(false);
     const [fetchingData, setfetchingData] = useState(false);
 
-    const searchCountryCodeApi: any = async (enteredTerm: any) => {
+    const searchCountryCodeApi: any = async (enteredCountryCode: string) => {
         try {
             setfetchingData(true);
+
+            const url: string = "/searchJSON?'orderby='population'&username=weknowit&country=" + enteredCountryCode;
+            const response = await GeoNames.get(url);
+            
+            /* 
+            The following doesn't work for some reason:
+
             const response = await GeoNames.get("/searchJSON", {
                 params: {
                     username: "weknowit",
-                    name_equals: enteredTerm,
+                    name_equals: enteredCountryCode,
+                    orderby: 'population',
                 }
-            });
+            }); 
+            
+            */
 
-            let nameOfCountryInFirstGeonamesElement = response.data.geonames[0].name;
+            let nameOfBiggestCity = response.data.geonames[0].name;
+            let sizeOfBiggestCity = response.data.geonames[0].population;
+            let nameOfSecondBiggestCity = response.data.geonames[1].name;
+            let sizeOfSecondBiggestCity = response.data.geonames[1].population;
+            let nameOfThirdBiggestCity = response.data.geonames[2].name;
+            let sizeOfThirdBiggestCity = response.data.geonames[2].population;
+            let arr: any = [nameOfBiggestCity, sizeOfBiggestCity,
+                    nameOfSecondBiggestCity, sizeOfSecondBiggestCity,
+                    nameOfThirdBiggestCity, sizeOfThirdBiggestCity];
 
-            /* When we enter the name of a city, e.g. Stockholm, it appears as the first element of the geonames array. 
-            Occasionally, more than one city has the same name (e.g. "London"). In this case, we assume the user meant
-            the city of London in England, which is the first element in the geonames array.Therefore, we set results 
-            to be the first element of the geonames array. We also check that the name key of the first element contains
-            a value equal to the entered term. Otherwise, a search for "Sa" returned the city Sia. Not sure why this is,
-            since I added the name_equals parameter. But checking this manually works. */
-            if (response.data.geonames.length >= 1 && nameOfCountryInFirstGeonamesElement === enteredTerm) {
-                let countryCode = response.data.geonames[0].countryCode;
-                setCountryCode(countryCode);
+            console.log(arr);
+
+            if (response.data.geonames.length >= 3) {
+                setThreeBiggestCities(arr);
                 setErrorMessage(""); 
                 setDataIsFetched(true);
                 setfetchingData(false);
@@ -46,7 +59,5 @@ export default function useCountryCode() {
         }
     };
 
-    /* SearchByCityScreen uses this function, the result from calling the function and the error message.
-    As such all three constant need to be returned to it. */
-    return [searchCountryCodeApi, countryCode, errorMessage, dataIsFetched, fetchingData]; 
+    return [searchCountryCodeApi, threeBiggestCities, errorMessage, dataIsFetched, fetchingData]; 
 }

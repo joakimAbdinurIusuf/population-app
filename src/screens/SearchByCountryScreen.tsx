@@ -10,7 +10,7 @@ import useCountryCode from '../hooks/useCountryCode';
  */
 export default function SearchByCountryScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchCountryCodeApi, countryCode, errorMessage, dataIsFetched, fetchingData] = useCountryCode();
+    const [searchCountryCodeApi, threeBiggestCities, errorMessage, dataIsFetched, fetchingData] = useCountryCode();
     
     return(
         <View>
@@ -21,7 +21,12 @@ export default function SearchByCountryScreen({navigation}: any) {
                 onCitySubmit={() => (searchCountryCodeApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
-            {dataIsFetched ? navigation.navigate("BiggestCities", {countryCode: countryCode}) : null}
+            {dataIsFetched ? navigation.navigate("BiggestCities", 
+            {
+                name1: threeBiggestCities[0], population1: threeBiggestCities[1],
+                name2: threeBiggestCities[2], population2: threeBiggestCities[3],
+                name3: threeBiggestCities[4], population3: threeBiggestCities[5],
+            }) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>
     )
