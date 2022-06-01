@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import ThreeBiggestCitiesButton from '../components/ThreeBiggestCitiesButton';
 
 /**
  * 
@@ -15,12 +16,19 @@ export default function ThreeBiggestCitiesScreen({navigation}: any) {
     const population3 = navigation.getParam("population3");
     return(
         <View>
-            <Text>{name1}</Text> 
-            <Text>{population1}</Text> 
-            <Text>{name2}</Text> 
-            <Text>{population2}</Text> 
-            <Text>{name3}</Text> 
-            <Text>{population3}</Text> 
+            <Text style={styles.title}>CityPop</Text> 
+            <ThreeBiggestCitiesButton 
+                text={name1} 
+                onPress={() => navigation.navigate("Results", {name: name1, population: population1})}
+            />
+            <ThreeBiggestCitiesButton 
+                text={name2} 
+                onPress={() => navigation.navigate("Results", {name: name2, population: population2})}
+            />
+            <ThreeBiggestCitiesButton 
+                text={name3} 
+                onPress={() => navigation.navigate("Results", {name: name3, population: population3})}
+            />
         </View>
     )
 }
