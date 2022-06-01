@@ -14,7 +14,7 @@ export default function useCityPopulationData() {
     const [dataIsFetched, setDataIsFetched] = useState(false);
     const [fetchingData, setfetchingData] = useState(false);
 
-    const searchApi: any = async (enteredTerm: any) => {
+    const searchCityApi: any = async (enteredTerm: any) => {
         try {
             setfetchingData(true);
             const response = await GeoNames.get("/searchJSON", {
@@ -56,5 +56,5 @@ export default function useCityPopulationData() {
 
     /* SearchByCityScreen uses this function, the result from calling the function and the error message.
     As such all three constant need to be returned to it. */
-    return [searchApi, result, errorMessage, dataIsFetched, fetchingData]; 
+    return [searchCityApi, result, errorMessage, dataIsFetched, fetchingData]; 
 }

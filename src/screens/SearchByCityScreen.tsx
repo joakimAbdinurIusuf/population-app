@@ -10,7 +10,7 @@ import useCityPopulationData from '../hooks/useCityPopulationData';
  */
 export default function SearchByCityScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchApi, result, errorMessage, dataIsFetched, fetchingData] = useCityPopulationData();
+    const [searchCityApi, result, errorMessage, dataIsFetched, fetchingData] = useCityPopulationData();
     
     return(
         <View>
@@ -18,7 +18,7 @@ export default function SearchByCityScreen({navigation}: any) {
             <SearchBar 
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
-                onCitySubmit={() => (searchApi(searchTerm))}
+                onCitySubmit={() => (searchCityApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
             {dataIsFetched ? navigation.navigate("Results", {name: result.name, population: result.population}) : null}
