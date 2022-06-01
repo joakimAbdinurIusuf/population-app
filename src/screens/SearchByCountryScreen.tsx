@@ -26,6 +26,7 @@ export default function SearchByCountryScreen({navigation}: any) {
                 name1: threeBiggestCities[0], population1: threeBiggestCities[1],
                 name2: threeBiggestCities[2], population2: threeBiggestCities[3],
                 name3: threeBiggestCities[4], population3: threeBiggestCities[5],
+                countryName: threeBiggestCities[6]
             }) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>
