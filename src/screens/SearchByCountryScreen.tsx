@@ -10,7 +10,9 @@ import useOrderByPopulation from '../hooks/useOrderByPopulation';
  */
 export default function SearchByCountryScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchCountryCodeApi, result, errorMessage, dataIsFetched, fetchingData] = useOrderByPopulation();
+    const [searchCountryCodeApi, threeBiggestCities, errorMessage, dataIsFetched, fetchingData] = useOrderByPopulation();
+
+    console.log(threeBiggestCities);
     
     return(
         <View>
@@ -21,7 +23,7 @@ export default function SearchByCountryScreen({navigation}: any) {
                 onCitySubmit={() => (searchCountryCodeApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
-            {dataIsFetched ? navigation.navigate("BiggestCities", {all: result}) : null}
+            {dataIsFetched ? navigation.navigate("BiggestCities", {all: threeBiggestCities}) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>
     )

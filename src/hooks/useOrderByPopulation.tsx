@@ -21,9 +21,12 @@ export default function useOrderByPopulation() {
                 }
             });
 
+            console.log(response.data.geonames[0]);
+            
             /* ... */
             if (response.data.geonames.length >= 1 && response.data.geonames[0].name === enteredTerm) {
                 let countryCode = response.data.geonames[0].countryCode;
+                console.log(countryCode);
                 setErrorMessage(""); 
                 searchThreeBiggestCitiesApi(countryCode);
             } else {
@@ -39,7 +42,6 @@ export default function useOrderByPopulation() {
 
     const searchThreeBiggestCitiesApi: any = async (countryCode: any) => {
         try {
-            setfetchingData(true);
             const response = await GeoNames.get("/searchJSON", {
                 params: {
                     username: "weknowit",
@@ -48,13 +50,18 @@ export default function useOrderByPopulation() {
                 }
             });
 
+            //console.log(response.data.geonames[0]);
+            //console.log(response.data.geonames[1]);
+            //console.log(response.data.geonames[2]);
+
             /* ... */
             if (response.data.geonames.length >= 3) {
                 let numberOfCities = 3;
-                for (let i = 0; i < numberOfCities; i++) {
-                    setThreeBiggestCities(response.data.geonames[i]);
-                }
-                console.log(threeBiggestCities);
+                //for (let i = 0; i < numberOfCities; i++) {
+                //    setThreeBiggestCities(response.data.geonames[i]);
+                //}
+                setThreeBiggestCities(response.data.geonames[0]);
+                //console.log(threeBiggestCities);
                 setErrorMessage(""); 
                 setDataIsFetched(true);
                 setfetchingData(false);
