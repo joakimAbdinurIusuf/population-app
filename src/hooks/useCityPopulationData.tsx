@@ -42,7 +42,7 @@ export default function useCityPopulationData() {
             if (response.data.geonames.length >= 1 && nameOfCityInFirstGeonamesElement === enteredTerm) {
                 let cityTheUserSearchedFor = response.data.geonames[0];
                 setResult(cityTheUserSearchedFor);
-                setErrorMessage(""); // TODO: Remove, redudant once ResultsScreen takes user back to home screen but looks nicer now.
+                setErrorMessage(""); 
                 setDataIsFetched(true);
                 setfetchingData(false);
             } else {
