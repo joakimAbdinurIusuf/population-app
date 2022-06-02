@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import SearchBar from '../components/SearchBarAndButton';
+import SearchBarAndButton from '../components/SearchBarAndButton';
 import useCountryCode from '../hooks/useCountryCode';
 
 /**
@@ -17,7 +17,7 @@ export default function SearchByCountryScreen({navigation}: any) {
     return(
         <View>
             <Text style={styles.title}>SEARCH BY COUNTRY</Text>
-            <SearchBar 
+            <SearchBarAndButton 
                 prompt={prompt}
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
