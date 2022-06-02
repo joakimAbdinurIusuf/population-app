@@ -20,15 +20,15 @@ export default function ThreeBiggestCitiesScreen({navigation}: any) {
             <Text style={styles.title}>{countryName}</Text> 
             <ThreeBiggestCitiesButton 
                 text={name1} 
-                onPress={() => navigation.navigate("Results", {name: name1, population: population1})}
+                onPress={() => navigation.replace("Results", {name: name1, population: population1})}
             />
             <ThreeBiggestCitiesButton 
                 text={name2} 
-                onPress={() => navigation.navigate("Results", {name: name2, population: population2})}
+                onPress={() => navigation.replace("Results", {name: name2, population: population2})}
             />
             <ThreeBiggestCitiesButton 
                 text={name3} 
-                onPress={() => navigation.navigate("Results", {name: name3, population: population3})}
+                onPress={() => navigation.replace("Results", {name: name3, population: population3})}
             />
         </View>
     )
