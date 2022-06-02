@@ -14,9 +14,10 @@ export default function useCityPopulationData() {
     const [dataIsFetched, setDataIsFetched] = useState(false);
     const [fetchingData, setfetchingData] = useState(false);
 
-    const searchCityApi: any = async (enteredTerm: any) => {
+    const searchCityApi: any = async (enteredTerm: string) => {
         try {
             setfetchingData(true);
+            enteredTerm.trim();
             const response = await GeoNames.get("/searchJSON", {
                 params: {
                     username: "weknowit",
@@ -31,7 +32,7 @@ export default function useCityPopulationData() {
                 }
             });
 
-            let nameOfCityInFirstGeonamesElement = response.data.geonames[0].name;
+            let nameOfCityInFirstGeonamesElement: string = response.data.geonames[0].name.trim();
 
             /* When we enter the name of a city, e.g. Stockholm, it appears as the first element of the geonames array. 
             Occasionally, more than one city has the same name (e.g. "London"). In this case, we assume the user meant
@@ -39,7 +40,7 @@ export default function useCityPopulationData() {
             to be the first element of the geonames array. We also check that the name key of the first element contains
             a value equal to the entered term. Otherwise, a search for "Sa" returned the city Sia. Not sure why this is,
             since I added the name_equals parameter. But checking this manually works. */
-            if (response.data.geonames.length >= 1 && nameOfCityInFirstGeonamesElement === enteredTerm) {
+            if (response.data.geonames.length >= 1 && nameOfCityInFirstGeonamesElement == enteredTerm) {
                 let cityTheUserSearchedFor = response.data.geonames[0];
                 setResult(cityTheUserSearchedFor);
                 setErrorMessage(""); 
