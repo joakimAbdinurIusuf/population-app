@@ -24,7 +24,7 @@ Download Node.js for your operating system from nodejs.org.
 4. Now type "expo start". A QR code should appear in the terminal.
 5. Open up the App Store or Google Play, depending on whether you have an iPhone or Android device. 
 6. Type "expo go" and download the app "Expo Go".
-7. Once it is installed, scan the QR code that you can see in the terminal with the device on your camera.
+7. Once it is installed, scan the QR code that you can see in the terminal with the camera on your device. If this doesn't work an you are on Android, open up the Expo Go app and scan the QR code from there.
 8. You should get the prompt "expo go", click on it.
 9. The project will now download in the app, wait for it to finish. Once it is finished, you should be able to test the CityPop app.
 
