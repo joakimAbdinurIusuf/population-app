@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ThreeBiggestCitiesButton from '../components/ThreeBiggestCitiesButton';
+import { CityData } from '../types/GeoNamesData';
 
 /**
  * 
@@ -8,13 +9,13 @@ import ThreeBiggestCitiesButton from '../components/ThreeBiggestCitiesButton';
  * @returns 
  */
 export default function ThreeBiggestCitiesScreen({navigation}: any) {
-    const countryName = navigation.getParam("countryName");
-    const name1 = navigation.getParam("name1");
-    const population1 = navigation.getParam("population1");
-    const name2 = navigation.getParam("name2");
-    const population2 = navigation.getParam("population2");
-    const name3 = navigation.getParam("name3");
-    const population3 = navigation.getParam("population3");
+    const countryName: CityData = navigation.getParam("countryName");
+    const name1: CityData = navigation.getParam("name1");
+    const population1: CityData = navigation.getParam("population1");
+    const name2: CityData = navigation.getParam("name2");
+    const population2: CityData = navigation.getParam("population2");
+    const name3: CityData = navigation.getParam("name3");
+    const population3: CityData = navigation.getParam("population3");
     return(
         <View>
             <Text style={styles.title}>{countryName}</Text> 

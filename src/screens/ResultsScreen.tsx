@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { CityData } from '../types/GeoNamesData';
 
 /**
  * The results screen, which shows the name of a city and its' population.
@@ -6,8 +7,8 @@ import { StyleSheet, Text, View } from 'react-native';
  * @returns A results screen.
  */
 export default function ResultsScreen({navigation}: any) {
-    const nameOfCity = navigation.getParam("name");
-    const poplationSize = navigation.getParam("population");
+    const nameOfCity: CityData = navigation.getParam("name");
+    const poplationSize: CityData = navigation.getParam("population");
 
     return(
         <View>
