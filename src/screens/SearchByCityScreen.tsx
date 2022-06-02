@@ -24,7 +24,7 @@ export default function SearchByCityScreen({navigation}: any) {
                 onCitySubmit={() => (searchCityApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
-            {dataIsFetched ? navigation.navigate("Results", {name: result.name, population: result.population}) : null}
+            {dataIsFetched ? navigation.replace("Results", {name: result.name, population: result.population}) : null}
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </View>
     )

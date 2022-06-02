@@ -24,7 +24,7 @@ export default function SearchByCountryScreen({navigation}: any) {
                 onCitySubmit={() => (searchCountryCodeApi(searchTerm))}
             />
             {fetchingData ? <ActivityIndicator /> : null}
-            {dataIsFetched ? navigation.navigate("BiggestCities", 
+            {dataIsFetched ? navigation.replace("BiggestCities", 
             {
                 name1: threeBiggestCities[0], population1: threeBiggestCities[1],
                 name2: threeBiggestCities[2], population2: threeBiggestCities[3],
