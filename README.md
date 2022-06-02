@@ -20,16 +20,18 @@ Download Node.js for your operating system from nodejs.org.
 
 1. Clone the repository to your computer.
 2. Open up a terminal and navigate to the root directory of the cloned repository. 
-3. Type the command "npm install". This might take a minute or two, which is fine. Just wait for the installation to finish. If you run into any errors, see if "npm install --force" does the trick. If this doesn't work, copy the error message, paste it into google and try to resolve it. 
-4. Now type "expo start". A QR code should appear in the terminal.
-5. Open up the App Store or Google Play, depending on whether you have an iPhone or Android device. 
-6. Type "expo go" and download the app "Expo Go".
-7. Once it is installed, scan the QR code that you can see in the terminal with the camera on your device. If this doesn't work an you are on Android, open up the Expo Go app and scan the QR code from there.
-8. You should get the prompt "expo go", click on it.
-9. The project will now download in the app, wait for it to finish. Once it is finished, you should be able to test the CityPop app.
+3. Type the command "npm install". This might take a minute or two, which is fine. Just wait for the installation to finish. 
+4. If (3) doesn't work and you run into any errors, see if "npm install --force" does the trick. If this doesn't work, copy the error message, paste it into google and try to resolve it. 
+5. Now type "expo start". A QR code should appear in the terminal.
+6. Open up the App Store or Google Play, depending on whether you have an iPhone or Android device. 
+7. Type "expo go" and download the app "Expo Go".
+8. Once it is installed, scan the QR code that you can see in the terminal with the camera on your device. If this doesn't work and you are on Android, open up the Expo Go app and scan the QR code from there.
+9. You should get the prompt "open in expo go". Click on it.
+10. The project will now download in the app, wait for it to finish. Once it is finished, you should be able to test the CityPop app.
+11. If at any point it disconnects from the metro bundler, tap on the app with three fingers and press "Reload".
 
 Troubleshooting: 
-1. If the 9th instruction above fails for some reason, navigate to http://localhost:19002.
+1. If the 10th instruction above fails for some reason, navigate to http://localhost:19002.
 2. In the left side bar, should should see three types of connections: "Tunnel", "LAN" and "Local". Try switching to "Tunnel" and scan the new QR code that appears in the browser. 
 3. If this doesn't work, copy the error message, paste it into google and try to resolve it. 
 
