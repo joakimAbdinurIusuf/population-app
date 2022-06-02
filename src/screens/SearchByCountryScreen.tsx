@@ -11,11 +11,14 @@ import useCountryCode from '../hooks/useCountryCode';
 export default function SearchByCountryScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchCountryCodeApi, threeBiggestCities, errorMessage, dataIsFetched, fetchingData] = useCountryCode();
+
+    let prompt: string = "Enter a country";
     
     return(
         <View>
             <Text style={styles.title}>SEARCH BY COUNTRY</Text>
             <SearchBar 
+                prompt={prompt}
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
                 onCitySubmit={() => (searchCountryCodeApi(searchTerm))}
