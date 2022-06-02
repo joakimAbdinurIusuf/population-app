@@ -4,7 +4,15 @@ import { TextInput } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
 /**
+ * A component that has a input field in which the user can search for a city or country, and a button
+ * that, when pressed, fetches data from an api and navigates the user to a new screen.
  * 
+ * @param prompt Text prompting the user to "Enter a city" or "Enter a country". 
+ * @param searchTerm The city or country that the user searched for.
+ * @param onTermChange Returns the search term passed from the search by city/country screen every time
+ * the text changes. The search term state is set in the parent, we don't want the child to set a new state.
+ * @param onCitySubmit Helps the search by city/country screen to call an api when the search button is pressed.
+ * @returns 
  */
 export default function SearchBarAndButton({ prompt, searchTerm, onTermChange, onCitySubmit }: any) {
     return ( 

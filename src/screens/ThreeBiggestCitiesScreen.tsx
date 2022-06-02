@@ -4,32 +4,33 @@ import ThreeBiggestCitiesButton from '../components/ThreeBiggestCitiesButton';
 import { CityData } from '../types/GeoNamesData';
 
 /**
+ * Shows the three biggest cities of the country the user searched for 
+ * in the SearchByCountryScreen, ordered by size.
  * 
- * @param props 
- * @returns 
+ * @returns A screen showing the three biggest cities.
  */
 export default function ThreeBiggestCitiesScreen({navigation}: any) {
     const countryName: CityData = navigation.getParam("countryName");
-    const name1: CityData = navigation.getParam("name1");
-    const population1: CityData = navigation.getParam("population1");
-    const name2: CityData = navigation.getParam("name2");
-    const population2: CityData = navigation.getParam("population2");
-    const name3: CityData = navigation.getParam("name3");
-    const population3: CityData = navigation.getParam("population3");
+    const nameOfBiggestCity: CityData = navigation.getParam("name1");
+    const populationSizeOfBiggestCity: CityData = navigation.getParam("population1");
+    const nameOfSecondBiggestCity: CityData = navigation.getParam("name2");
+    const populationSizeOfSecondBiggestCity: CityData = navigation.getParam("population2");
+    const nameOfThirdBiggestCity: CityData = navigation.getParam("name3");
+    const populationSizeOfThirdBiggestCity: CityData = navigation.getParam("population3");
     return(
         <View>
             <Text style={styles.title}>{countryName}</Text> 
             <ThreeBiggestCitiesButton 
-                text={name1} 
-                onPress={() => navigation.replace("Results", {name: name1, population: population1})}
+                text={nameOfBiggestCity} 
+                onPress={() => navigation.replace("Results", {name: nameOfBiggestCity, population: populationSizeOfBiggestCity})}
             />
             <ThreeBiggestCitiesButton 
-                text={name2} 
-                onPress={() => navigation.replace("Results", {name: name2, population: population2})}
+                text={nameOfSecondBiggestCity} 
+                onPress={() => navigation.replace("Results", {name: nameOfSecondBiggestCity, population: populationSizeOfSecondBiggestCity})}
             />
             <ThreeBiggestCitiesButton 
-                text={name3} 
-                onPress={() => navigation.replace("Results", {name: name3, population: population3})}
+                text={nameOfThirdBiggestCity} 
+                onPress={() => navigation.replace("Results", {name: nameOfThirdBiggestCity, population: populationSizeOfThirdBiggestCity})}
             />
         </View>
     )

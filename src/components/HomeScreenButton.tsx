@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 /**
  * A custom home screen button.
  * 
- * @param text The text that is displayed in the button.
+ * @param text The text that is displayed in the button, it's either "SEARCH BY CITY" or "SEARCH BY COUNTRY".
  * @param onPress Function that handles navigation when button is pressed.
  * @returns A custom home screen button.
  */
