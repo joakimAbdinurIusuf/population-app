@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import SearchBar from '../components/SearchBarAndButton';
+import SearchBarAndButton from '../components/SearchBarAndButton';
 import useCityPopulationData from '../hooks/useCityPopulationData';
 
 /**
@@ -17,7 +17,7 @@ export default function SearchByCityScreen({navigation}: any) {
     return(
         <View>
             <Text style={styles.title}>SEARCH BY CITY</Text>
-            <SearchBar
+            <SearchBarAndButton
                 prompt={prompt}
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 

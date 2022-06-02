@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 /**
  * 
  */
-export default function SearchBar({ prompt, searchTerm, onTermChange, onCitySubmit }: any) {
+export default function SearchBarAndButton({ prompt, searchTerm, onTermChange, onCitySubmit }: any) {
     return ( 
         <View>
             <TextInput 
