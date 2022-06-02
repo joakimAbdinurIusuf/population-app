@@ -48,11 +48,6 @@ export default function useOrderCitiesBySize() {
                 setfetchingData(false);
             } else {
                 const countryCode = countryCodeResponse.data.geonames[0].countryCode;
-                const url: string = "/searchJSON?orderby='population'&cities='cities500'&username=weknowit&country=" + countryCode;
-                const response = await GeoNames.get(url);
-
-                /* 
-                The following doesn't work for some reason, very strange:
 
                 const response = await GeoNames.get("/searchJSON", {
                     params: {
@@ -62,10 +57,6 @@ export default function useOrderCitiesBySize() {
                         cities: "cities500",
                     }
                 }); 
-
-                It should be equivalent to the url, but it isn't.
-                
-                */
 
                 let nameOfBiggestCity = response.data.geonames[0].name;
                 let sizeOfBiggestCity = response.data.geonames[0].population;
