@@ -4,9 +4,12 @@ import GeoNames from '../api/GeoNames';
 /**
  * A hook that is used to fetch the name of a city a user searches for as well as its' population size.
  * 
- * @returns the function searchApi, an object that is either null or includes the name of the
- * city that the user searched for and its' population size, and an error message that is either
- * null or a string if the get request returned an empty geonames array (i.e. the city doesn't exist).
+ * @returns The function searchApi.
+ * @returns A result object that is either null or includes the first element of the geonames array in which 
+ * the name of the city the user searched for an its' population size can be found. 
+ * @returns An error message that is either null or a string if the get request returned an empty geonames array 
+ * (i.e. the city doesn't exist). 
+ * @returns Two booleans, one says whether data is being fetched or not, and the other whether it has been fetched or not.
  */
 export default function useCityPopulationData() {
     const [result, setResult] = useState([]);
@@ -36,10 +39,12 @@ export default function useCityPopulationData() {
 
             /* When we enter the name of a city, e.g. Stockholm, it appears as the first element of the geonames array. 
             Occasionally, more than one city has the same name (e.g. "London"). In this case, we assume the user meant
-            the city of London in England, which is the first element in the geonames array.Therefore, we set results 
+            the city of London in England, which is the first element in the geonames array. Therefore, we set results 
             to be the first element of the geonames array. We also check that the name key of the first element contains
             a value equal to the entered term. Otherwise, a search for "Sa" returned the city Sia. Not sure why this is,
-            since I added the name_equals parameter. But checking this manually works. */
+            since I added the name_equals parameter. But checking this manually works. 
+            
+            BUG: The second check results in an error message being thrown if there is white space after the entered term. */
             if (response.data.geonames.length >= 1 && nameOfCityInFirstGeonamesElement == enteredTerm) {
                 let cityTheUserSearchedFor = response.data.geonames[0];
                 setResult(cityTheUserSearchedFor);

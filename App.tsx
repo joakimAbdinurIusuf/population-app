@@ -6,10 +6,10 @@ import SearchByCountryScreen from './src/screens/SearchByCountryScreen';
 import ThreeBiggestCitiesScreen from './src/screens/ThreeBiggestCitiesScreen';
 import ResultsScreen from './src/screens/ResultsScreen';
 
-/*
-Using a stack navigator as opposed to a botton tab or drawer navigator
-as it fits best with the requirements. 
-*/
+/**
+ * Sets up the name of the screens that the user can navigate to, and sets the intial
+ * route to be to HomeScreen.
+ */
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,

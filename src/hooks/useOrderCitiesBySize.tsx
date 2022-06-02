@@ -1,17 +1,33 @@
 import { useState } from 'react';
 import GeoNames from '../api/GeoNames';
-import { CityData } from '../types/GeoNamesData';
 
 /**
+ * A hook that is used to fetch the names and population sizes of the three biggest cities in the country
+ * that the user search for.
  * 
- * @returns 
+ * @returns The function searchCountryCodeApi.
+ * @returns A threeBiggestCities object that is either null or includes the names and population sizes of the three biggest cities
+ * in the country that the user searched for.
+ * @returns An error message that is either null or a string if the get request returned an empty geonames array 
+ * (i.e. the country doesn't exist). 
+ * @returns Two booleans, one says whether data is being fetched or not, and the other whether it has been fetched or not.
  */
-export default function useCountryCode() {
+export default function useOrderCitiesBySize() {
     const [threeBiggestCities, setThreeBiggestCities] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [dataIsFetched, setDataIsFetched] = useState(false);
     const [fetchingData, setfetchingData] = useState(false);
 
+    /**
+     * We need to fetch the country code of the country the user searched for, e.g. "IT" for "Italy".
+     * The reason for this is that the country parameter in the GeoNames api only takes a country code, not
+     * the name of a country. Unfortunately it doesnät have a countryName parameter. So to search for the 
+     * three biggest cities in a country, we have to pass the country code, which is what we get from the
+     * countryCodeResponse below. We then use this country code, in combination with the orderby parameter,
+     * to fetch the three biggest cities (order by population size). This happens in the second get request below.
+     * 
+     * @param enteredCountry The name of the country that the user searched for.
+     */
     const searchCountryCodeApi: any = async (enteredCountry: string) => {
         try {
             setfetchingData(true);
@@ -23,7 +39,10 @@ export default function useCountryCode() {
                 }
             });
 
-            if (countryCodeResponse.data.geonames.length < 1 || countryCodeResponse.data.geonames[0].name !== enteredCountry) {
+            /* If GeoNames doesn't return an object with the name of the country, or an empty array, it doesn't exist. 
+            
+            BUG: The second check results in an error message being thrown if there is white space after the entered term. */
+            if (countryCodeResponse.data.geonames.length < 1 || countryCodeResponse.data.geonames[0].name != enteredCountry) {
                 setErrorMessage("Country doesn't exist, please try again");
                 setDataIsFetched(false);
                 setfetchingData(false);
@@ -38,7 +57,7 @@ export default function useCountryCode() {
                 const response = await GeoNames.get("/searchJSON", {
                     params: {
                         username: "weknowit",
-                        name_equals: countryCode,
+                        country: countryCode,
                         orderby: "population",
                         cities: "cities500",
                     }

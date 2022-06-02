@@ -4,7 +4,9 @@ import SearchBarAndButton from '../components/SearchBarAndButton';
 import useCityPopulationData from '../hooks/useCityPopulationData';
 
 /**
- * The search by city screen that is navigated to from the home screen.
+ * The search by city screen that is navigated to from the home screen. The user can
+ * search for a city. If it exists, the user will be taken to the ResultsScreen, otherwise
+ * an error message will be thrown. The error message is defined in the useCityPopulationData hook.
  * 
  * @returns A search by city screen.
  */

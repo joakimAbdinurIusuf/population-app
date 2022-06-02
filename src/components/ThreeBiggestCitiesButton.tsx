@@ -2,11 +2,11 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 /**
- * A custom home screen button.
+ * A custom button for the ThreeBiggestCitiesScreen. 
  * 
- * @param text The text that is displayed in the button.
- * @param onPress Function that handles navigation when button is pressed.
- * @returns A custom home screen button.
+ * @param text The name of a city, which is displayed in the button.
+ * @param onPress Function that handles navigation when the button is pressed.
+ * @returns A custom button.
  */
 export default function ThreeBiggestCitiesButton({ text, onPress }: any) {
   return (
