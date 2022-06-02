@@ -11,11 +11,14 @@ import useCityPopulationData from '../hooks/useCityPopulationData';
 export default function SearchByCityScreen({navigation}: any) {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchCityApi, result, errorMessage, dataIsFetched, fetchingData] = useCityPopulationData();
+
+    let prompt: string = "Enter a city";
     
     return(
         <View>
             <Text style={styles.title}>SEARCH BY CITY</Text>
-            <SearchBar 
+            <SearchBar
+                prompt={prompt}
                 searchTerm={searchTerm} 
                 onTermChange={setSearchTerm} 
                 onCitySubmit={() => (searchCityApi(searchTerm))}

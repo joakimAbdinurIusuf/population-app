@@ -6,12 +6,12 @@ import { Ionicons } from '@expo/vector-icons';
 /**
  * 
  */
-export default function SearchBar({ searchTerm, onTermChange, onCitySubmit }: any) {
+export default function SearchBar({ prompt, searchTerm, onTermChange, onCitySubmit }: any) {
     return ( 
         <View>
             <TextInput 
                 style={styles.background} 
-                placeholder="Enter a city" 
+                placeholder={prompt} 
                 value={searchTerm}
                 onChangeText={onTermChange}
             />
