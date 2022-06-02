@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import GeoNames from '../api/GeoNames';
+import { CityData } from '../types/GeoNamesData';
 
 /**
  * 
